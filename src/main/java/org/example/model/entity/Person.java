@@ -3,8 +3,6 @@ package org.example.model.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "person")
 public class Person {
@@ -17,8 +15,6 @@ public class Person {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    //@OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //private List<Vehicle> vehicles;
 
     public Person() {
     }
@@ -33,12 +29,6 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-//    public Person(String firstName, String lastName, List<Vehicle> vehicles) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.vehicles = vehicles;
-//    }
 
     public Long getId() {
         return id;
@@ -63,13 +53,4 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-//    public List<Vehicle> getVehicles() {
-//        return vehicles;
-//    }
-//
-//    public void setVehicles(List<Vehicle> vehicles) {
-//        this.vehicles = vehicles;
-//    }
-
 }

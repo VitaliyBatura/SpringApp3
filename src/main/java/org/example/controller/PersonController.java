@@ -1,7 +1,6 @@
 package org.example.controller;
 
 import org.example.model.dto.PersonDto;
-//import org.example.model.mapper.PersonListMapper;
 import org.example.model.mapper.PersonMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +31,7 @@ public class PersonController {
     @GetMapping("/persons/{id}")
     public PersonDto readOnePerson(@PathVariable Long id) {
         Person person = personService.readById(id);
-        return  personMapper.toPersonDto(person);
+        return personMapper.toPersonDto(person);
     }
 
     @GetMapping("/persons")

@@ -8,6 +8,7 @@ import org.example.service.PersonService;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mapstruct.factory.Mappers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
@@ -24,7 +25,7 @@ public class PersonControllerTest {
     @Mock
     private PersonService personService;
     @Spy
-    private PersonMapper personMapper;
+    private PersonMapper personMapper = Mappers.getMapper(PersonMapper.class);
     @InjectMocks
     private PersonController personController;
 

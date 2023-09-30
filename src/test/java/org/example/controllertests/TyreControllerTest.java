@@ -32,9 +32,9 @@ public class TyreControllerTest {
     public void createTyre() {
         when(tyreService.create(any(Tyre.class))).thenReturn(new Tyre());
         tyreController.createTyre(new TyreDto());
-        //verify(tyreMapper).toTyre(any(TyreDto.class));
+        verify(tyreMapper).toTyre(any(TyreDto.class));
         verify(tyreService).create(any(Tyre.class));
-        //verify(tyreMapper).toTyreDto(any(Tyre.class));
+        verify(tyreMapper).toTyreDto(any(Tyre.class));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class TyreControllerTest {
         when(tyreService.readById(any(Long.class))).thenReturn(new Tyre());
         tyreController.readOneTyre(1L);
         verify(tyreService).readById(1L);
-        //verify(tyreMapper).toTyreDto(any(Tyre.class));
+        verify(tyreMapper).toTyreDto(any(Tyre.class));
     }
 
     @Test
@@ -50,16 +50,16 @@ public class TyreControllerTest {
         when(tyreService.readAll()).thenReturn(Collections.emptyList());
         tyreController.readAllTyres();
         verify(tyreService).readAll();
-        //verify(tyreMapper).toTyreDtoList(any());
+        verify(tyreMapper).toTyreDtoList(any());
     }
 
     @Test
     public void updateTyre() {
         when(tyreService.update(any(Long.class), any(Tyre.class))).thenReturn(new Tyre());
         tyreController.updateTyre(1L, new TyreDto());
-        //verify(tyreMapper).toTyre(any(TyreDto.class));
+        verify(tyreMapper).toTyre(any(TyreDto.class));
         verify(tyreService).update(any(Long.class), any(Tyre.class));
-        //verify(tyreMapper).toTyreDto(any(Tyre.class));
+        verify(tyreMapper).toTyreDto(any(Tyre.class));
     }
 
     @Test

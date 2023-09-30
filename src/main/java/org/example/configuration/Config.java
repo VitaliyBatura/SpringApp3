@@ -34,12 +34,12 @@ public class Config {
     }
 
     @Bean
-    public DataSource dataSource () {
-            HikariConfig hikariConfig = new HikariConfig();
-            hikariConfig.setJdbcUrl(environment.getRequiredProperty("hikari.jdbcUrl"));
-            hikariConfig.setUsername(environment.getRequiredProperty("hikari.user"));
-            hikariConfig.setPassword(environment.getRequiredProperty("hikari.password"));
-            return new HikariDataSource(hikariConfig);
+    public DataSource dataSource() {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setJdbcUrl(environment.getRequiredProperty("hikari.jdbcUrl"));
+        hikariConfig.setUsername(environment.getRequiredProperty("hikari.user"));
+        hikariConfig.setPassword(environment.getRequiredProperty("hikari.password"));
+        return new HikariDataSource(hikariConfig);
     }
 
     @Bean
@@ -71,7 +71,7 @@ public class Config {
     }
 
     @Bean
-    public SessionFactory sessionFactory(){
+    public SessionFactory sessionFactory() {
         return entityManagerFactory().getNativeEntityManagerFactory().unwrap(SessionFactory.class);
     }
 }

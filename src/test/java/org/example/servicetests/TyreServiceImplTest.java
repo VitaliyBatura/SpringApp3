@@ -59,8 +59,7 @@ public class TyreServiceImplTest {
     @Test
     public void deleteById() {
         doNothing().when(tyreRepository).deleteById(anyLong());
-        tyreService.deleteById(33L);
-        verify(tyreRepository).deleteById(33L);
+        tyreService.deleteById(21L);
+        verify(tyreRepository).deleteById(21L);
     }
 }
-

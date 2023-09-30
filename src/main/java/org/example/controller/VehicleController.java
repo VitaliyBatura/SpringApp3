@@ -31,7 +31,7 @@ public class VehicleController {
 
     @GetMapping("/vehicles/{id}")
     public VehicleDto readOneVehicle(@PathVariable Long id) {
-        return  vehicleMapper.toVehicleDto(vehicleService.readById(id));
+        return vehicleMapper.toVehicleDto(vehicleService.readById(id));
     }
 
     @GetMapping("/vehicles")
@@ -50,5 +50,4 @@ public class VehicleController {
         vehicleService.deleteById(id);
         return "Vehicle with ID = " + id + " was deleted";
     }
-
 }

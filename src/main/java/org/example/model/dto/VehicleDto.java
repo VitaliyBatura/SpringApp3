@@ -8,8 +8,6 @@ public class VehicleDto {
     private String type;
     private String model;
     private PersonDto person;
-
- //   private Long personId;
     private List<TyreDto> tyres;
 
     public VehicleDto() {
@@ -62,5 +60,4 @@ public class VehicleDto {
     public void setTyres(List<TyreDto> tyres) {
         this.tyres = tyres;
     }
-
 }

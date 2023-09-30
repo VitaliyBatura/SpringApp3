@@ -17,11 +17,11 @@ public class Vehicle {
     private String type;
     @Column(name = "model")
     private String model;
-    @OneToOne(fetch = FetchType.LAZY)//(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
     private Person person;
 
-    @ManyToMany//(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(
             name = "vehicle_tyre",
             joinColumns = @JoinColumn(name = "vehicle_id"),

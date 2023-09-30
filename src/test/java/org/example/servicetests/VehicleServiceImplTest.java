@@ -2,8 +2,6 @@ package org.example.servicetests;
 
 import org.example.model.entity.Person;
 import org.example.model.entity.Vehicle;
-import org.example.model.repository.PersonRepository;
-import org.example.model.repository.TyreRepository;
 import org.example.model.repository.VehicleRepository;
 import org.example.service.impl.VehicleServiceImpl;
 
@@ -22,10 +20,6 @@ import static org.mockito.Mockito.*;
 public class VehicleServiceImplTest {
     @Mock
     private VehicleRepository vehicleRepository;
-    @Mock
-    private PersonRepository personRepository;
-    @Mock
-    private TyreRepository tyreRepository;
     @InjectMocks
     private VehicleServiceImpl vehicleService;
 
@@ -67,4 +61,4 @@ public class VehicleServiceImplTest {
         vehicleService.deleteById(1L);
         verify(vehicleRepository).deleteById(1L);
     }
- }
+}

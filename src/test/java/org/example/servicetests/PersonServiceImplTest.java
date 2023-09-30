@@ -60,7 +60,7 @@ public class PersonServiceImplTest {
     @Test
     public void deleteById() {
         doNothing().when(personRepository).deleteById(anyLong());
-        personService.deleteById(33L);
-        verify(personRepository).deleteById(33L);
+        personService.deleteById(21L);
+        verify(personRepository).deleteById(21L);
     }
 }

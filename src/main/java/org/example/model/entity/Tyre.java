@@ -17,11 +17,7 @@ public class Tyre {
     private String name;
     @Column(name = "season")
     private String season;
-//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "vehicle_tyre",
-//            joinColumns = @JoinColumn(name = "tyre_id"),
-//            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tyres")
     private List<Vehicle> vehicles = new ArrayList<>();
 
@@ -38,6 +34,7 @@ public class Tyre {
         this.season = season;
         this.vehicles = vehicles;
     }
+
     public Long getId() {
         return id;
     }
@@ -60,13 +57,5 @@ public class Tyre {
 
     public void setSeason(String season) {
         this.season = season;
-    }
-
-    public List<Vehicle> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
     }
 }

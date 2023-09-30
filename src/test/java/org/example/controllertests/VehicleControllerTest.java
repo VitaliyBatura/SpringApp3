@@ -8,6 +8,7 @@ import org.example.service.VehicleService;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mapstruct.factory.Mappers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
@@ -24,7 +25,7 @@ public class VehicleControllerTest {
     @Mock
     private VehicleService vehicleService;
     @Spy
-    private VehicleMapper vehicleMapper;
+    private VehicleMapper vehicleMapper = Mappers.getMapper(VehicleMapper.class);
     @InjectMocks
     private VehicleController vehicleController;
 
@@ -50,14 +51,16 @@ public class VehicleControllerTest {
         when(vehicleService.readAll()).thenReturn(Collections.emptyList());
         vehicleController.readAllVehicles();
         verify(vehicleService).readAll();
-        verify(vehicleMapper).toVehicleList(any());
+        verify(vehicleMapper).toVehicleDtoList(any());
     }
 
     @Test
     public void updateVehicle() {
         when(vehicleService.update(any(Long.class), any(Vehicle.class))).thenReturn(new Vehicle());
         vehicleController.updateVehicle(1L, new VehicleDto());
+        verify(vehicleMapper).toVehicle(any(VehicleDto.class));
         verify(vehicleService).update(any(Long.class), any(Vehicle.class));
+        verify(vehicleMapper).toVehicleDto(any(Vehicle.class));
     }
 
     @Test
