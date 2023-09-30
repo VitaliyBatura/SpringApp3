@@ -1,6 +1,7 @@
 package org.example.model.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,17 +12,18 @@ public class Tyre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "season")
     private String season;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "vehicle_tyre",
-            joinColumns = @JoinColumn(name = "tyre_id"),
-            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
-    private List<Vehicle> vehicles;
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "vehicle_tyre",
+//            joinColumns = @JoinColumn(name = "tyre_id"),
+//            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tyres")
+    private List<Vehicle> vehicles = new ArrayList<>();
 
     public Tyre() {
     }
@@ -36,18 +38,11 @@ public class Tyre {
         this.season = season;
         this.vehicles = vehicles;
     }
-
-    public void addVehicleToTyre(Vehicle vehicle) {
-        if(vehicles == null) {
-            vehicles =new ArrayList<>();
-        }
-        vehicles.add(vehicle);
-    }
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,14 +68,5 @@ public class Tyre {
 
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }
-
-    @Override
-    public String toString() {
-        return "Tyre{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", season='" + season + '\'' +
-                '}';
     }
 }

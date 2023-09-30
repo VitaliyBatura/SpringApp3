@@ -1,6 +1,7 @@
 package org.example.model.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,20 +12,21 @@ public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @Column(name = "type")
     private String type;
-    @Column(name = "madel")
+    @Column(name = "model")
     private String model;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)//(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id")
     private Person person;
-    @ManyToMany(cascade = CascadeType.ALL)
+
+    @ManyToMany//(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "vehicle_tyre",
             joinColumns = @JoinColumn(name = "vehicle_id"),
             inverseJoinColumns = @JoinColumn(name = "tyre_id"))
-    private List<Tyre> tyres;
+    private List<Tyre> tyres = new ArrayList<>();
 
     public Vehicle() {
     }
@@ -42,18 +44,11 @@ public class Vehicle {
         this.tyres = tyres;
     }
 
-    public void addTyreToVehicle(Tyre tyre) {
-        if(tyres == null) {
-            tyres = new ArrayList<>();
-        }
-        tyres.add(tyre);
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -87,15 +82,5 @@ public class Vehicle {
 
     public void setTyres(List<Tyre> tyres) {
         this.tyres = tyres;
-    }
-
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", model='" + model + '\'' +
-                ", person=" + person +
-                '}';
     }
 }

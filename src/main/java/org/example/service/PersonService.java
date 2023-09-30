@@ -8,11 +8,11 @@ public interface PersonService {
 
     Person create(Person person);
 
-    Person readById(long id);
+    Person readById(Long id);
 
     List<Person> readAll();
 
-    Person update(Person person);
+    Person update(Long id, Person person);
 
-    void deleteById(long id);
+    void deleteById(Long id);
 }

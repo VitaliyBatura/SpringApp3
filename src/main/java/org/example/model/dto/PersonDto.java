@@ -9,7 +9,7 @@ public class PersonDto {
     Long id;
     private String firstName;
     private String lastName;
-    private List<Vehicle> vehicles;
+   // private List<Vehicle> vehicles;
 
     public PersonDto() {
     }
@@ -19,18 +19,30 @@ public class PersonDto {
         this.lastName = lastName;
     }
 
-    public PersonDto(long id, String firstName, String lastName, List<Vehicle> vehicles) {
+//    public PersonDto(Long id, String firstName, String lastName, List<Vehicle> vehicles) {
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.vehicles = vehicles;
+//    }
+
+    public PersonDto(Long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.vehicles = vehicles;
     }
 
-    public long getId() {
+//    public PersonDto(String firstName, String lastName, List<Vehicle> vehicles) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.vehicles = vehicles;
+//    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,11 +62,11 @@ public class PersonDto {
         this.lastName = lastName;
     }
 
-    public List<Vehicle> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
+//    public List<Vehicle> getVehicles() {
+//        return vehicles;
+//    }
+//
+//    public void setVehicles(List<Vehicle> vehicles) {
+//        this.vehicles = vehicles;
+//    }
 }

@@ -1,33 +1,33 @@
 package org.example.model.dto;
 
-import org.example.model.entity.Tyre;
-
 import java.util.List;
 
 public class VehicleDto {
 
-    private long id;
+    private Long id;
     private String type;
     private String model;
-    private long personId;
-    private List<Tyre> tyres;
+    private PersonDto person;
+
+ //   private Long personId;
+    private List<TyreDto> tyres;
 
     public VehicleDto() {
     }
 
-    public VehicleDto(long id, String type, String model, long personId,List<Tyre> tyres) {
+    public VehicleDto(Long id, String type, String model, PersonDto personDto, List<TyreDto> tyresDto) {
         this.id = id;
         this.type = type;
         this.model = model;
-        this.personId = personId;
-        this.tyres = tyres;
+        this.person = personDto;
+        this.tyres = tyresDto;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,19 +47,19 @@ public class VehicleDto {
         this.model = model;
     }
 
-    public long getPerson() {
-        return personId;
+    public PersonDto getPerson() {
+        return person;
     }
 
-    public void setPerson(long personId) {
-        this.personId = personId;
+    public void setPerson(PersonDto person) {
+        this.person = person;
     }
 
-    public List<Tyre> getTyres() {
+    public List<TyreDto> getTyres() {
         return tyres;
     }
 
-    public void setTyres(List<Tyre> tyres) {
+    public void setTyres(List<TyreDto> tyres) {
         this.tyres = tyres;
     }
 
