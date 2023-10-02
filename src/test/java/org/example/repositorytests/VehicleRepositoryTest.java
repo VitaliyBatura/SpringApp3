@@ -1,5 +1,23 @@
 package org.example.repositorytests;
 
+//import jakarta.persistence.EntityManager;
+//import org.example.AbstractIntegrationTest;
+//import org.example.model.repository.VehicleRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//
+//
+//public class VehicleRepositoryTest extends AbstractIntegrationTest {
+//
+//    private final VehicleRepository vehicleRepository;
+//    private final TestEntityManager entityManager;
+//
+//    @Autowired
+//    public VehicleRepositoryTest(VehicleRepository vehicleRepository, TestEntityManager entityManager) {
+//        this.vehicleRepository = vehicleRepository;
+//        this.entityManager = entityManager;
+//    }
+//}
+
 import org.example.AbstractIntegrationTest;
 import org.example.configuration.Config;
 import org.example.model.entity.Person;
@@ -19,7 +37,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringJUnitConfig(classes = {Config.class, PersonRepository.class, VehicleRepository.class, TyreRepository.class})
+@SpringJUnitConfig(classes = {Config.class, VehicleRepository.class, TyreRepository.class, PersonRepository.class})
 public class VehicleRepositoryTest extends AbstractIntegrationTest {
 
     private final PersonRepository personRepository;
