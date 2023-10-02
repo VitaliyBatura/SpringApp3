@@ -31,6 +31,17 @@ public class Vehicle {
     public Vehicle() {
     }
 
+    public Vehicle(String type, String model) {
+        this.type = type;
+        this.model = model;
+    }
+
+    public Vehicle(Long id, String type, String model) {
+        this.id = id;
+        this.type = type;
+        this.model = model;
+    }
+
     public Vehicle(String type, String model, Person person) {
         this.type = type;
         this.model = model;

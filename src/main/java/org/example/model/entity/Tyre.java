@@ -24,6 +24,12 @@ public class Tyre {
     public Tyre() {
     }
 
+    public Tyre(Long id, String name, String season) {
+        this.id = id;
+        this.name = name;
+        this.season = season;
+    }
+
     public Tyre(String name, String season) {
         this.name = name;
         this.season = season;
