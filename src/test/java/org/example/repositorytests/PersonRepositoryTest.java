@@ -1,5 +1,6 @@
 package org.example.repositorytests;
 
+import org.example.AbstractIntegrationTest;
 import org.example.configuration.Config;
 import org.example.model.entity.Person;
 import org.example.model.repository.PersonRepository;
@@ -15,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringJUnitConfig(classes = {Config.class, PersonRepository.class})
-public class PersonRepositoryTest {
+public class PersonRepositoryTest extends AbstractIntegrationTest {
 
     private final PersonRepository personRepository;
 
